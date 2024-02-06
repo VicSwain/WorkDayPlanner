@@ -3,19 +3,47 @@
 // in the html.
 
 saveBtn = document.getElementsByClassName("saveBtn");
-var hours = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"]
-var divTags = document.getElementsByTagName('div');
+var hours = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
+var divTags = document.getElementsByTagName("div");
 console.log(divTags);
-var currentHour = dayjs().format('h');
+var currentHour = dayjs().format("h");
 console.log(currentHour);
 function check() {
   if (currentHour === "11") {
-  console.log("This is working");
+    console.log("This is working");
   }
 }
-check ();
+check();
 $(document).ready(function () {
+  console.log("Getting all elements by class timeblock");
+  console.log($(`.time-block`));
 
+  $(".time-block").each(colorCode);
+
+  function colorCode() {
+    console.log("Color Code function");
+    console.log($(this).attr("id"));
+    myID = $(this).attr("id");
+    hourOfID = Number(myID.substring(5))
+    console.log(hourOfID);
+    console.log(currentHour)
+    if (currentHour > hourOfID) {
+      console.log("Should be past")
+      $(this).addClass("past");
+    } else if (currentHour == hourOfID) {
+      console.log("Should be present")
+      $(this).addClass("present");
+    } else {
+      console.log("Shoudl be future")
+      $(this).addClass("future");
+    }
+  }
+
+  function signUp(newPlayer) {
+    //register the name
+    //add the number
+    //assign to a team
+  }
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -36,7 +64,7 @@ $(document).ready(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
   function displayDate() {
-  var today = dayjs();
-$('#currentDay').text(today.format('dddd, MMM D, YYYY, h:mm:ss a'));
+    var today = dayjs();
+    $("#currentDay").text(today.format("dddd, MMM D, YYYY, h:mm:ss a"));
   }
 });
