@@ -6,6 +6,11 @@ This workday planner is designed to color code the time slots as grey for the pa
 ### Usage
 User should enter the taske in the desired time slot and use the save button to store the task. Simply input a new task the next day to overwrite the previous task. Green time slots are intended to be future time slots, grey the past, and red being the current hour. 
 
+#### Credits
+I pair programmed with Tim Lewis working through this, and had assistance from my tutor Alex Gonzalez starting the project
 
+##### Screenshot
+![Webpage Screenshot](WDPScreenShot.jpeg)
 
-![Webpage Screenshot](Mod2Pic.jpeg)
+###### URL
+https://vicswain.github.io/WorkDayPlanner/ 
