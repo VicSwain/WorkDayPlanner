@@ -10,7 +10,7 @@ User should enter the taske in the desired time slot and use the save button to 
 I pair programmed with Tim Lewis working through this, and had assistance from my tutor Alex Gonzalez starting the project
 
 ##### Screenshot
-![Webpage Screenshot](WDPScreenShot.jpeg)
+![Webpage Screenshot](Assets\WDPScreenShot.jpeg)
 
 ###### URL
 https://vicswain.github.io/WorkDayPlanner/ 
