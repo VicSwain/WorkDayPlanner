@@ -2,8 +2,8 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-saveBtn = document.getElementsByClassName("saveBtn");
-var userInput= document.getElementsByClassName("description")
+var saveBtn = $(".saveBtn");
+var userInput = document.getElementsByClassName("description")
 console.log("userInput");
 console.log(userInput);
 var hours = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
@@ -27,19 +27,18 @@ $(document).ready(function () {
     }
   }
 
-function saveTask() {
-  var textArea = $(this).siblings('.description').val();
-  var divId = $(this).parent().attr('id');
-  console.log("divId")
-  console.log(divId);
-  localStorage.setItem(divId, textArea);
+  function saveTask() {
+    var textArea = $(this).siblings('.description').val();
+    var divId = $(this).parent().attr('id');
+    console.log("divId")
+    console.log(divId, textArea, this);
 
-}
-saveTask();
-// saveBtn.on('click', saveTask() {
-//   localStorage.setItemItem(divId, textArea);
+    localStorage.setItem(divId, textArea);
 
-// });
+  }
+  saveTask();
+  saveBtn.on('click', saveTask)
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -66,3 +65,8 @@ saveTask();
 });
 
 
+$('.time-block').each(function () {
+  const key = $(this).attr('id');
+  const value = localStorage.getItem(key);
+  $(this).children('.description').val(value);
+});
