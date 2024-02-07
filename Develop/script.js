@@ -3,17 +3,12 @@
 // in the html.
 
 saveBtn = document.getElementsByClassName("saveBtn");
+var userInput= document.getElementsByClassName("description")
+console.log("userInput");
+console.log(userInput);
 var hours = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
 var divTags = document.getElementsByTagName("div");
-console.log(divTags);
-var currentHour = dayjs().format("h");
-console.log(currentHour);
-function check() {
-  if (currentHour === "11") {
-    console.log("This is working");
-  }
-}
-check();
+var currentHour = dayjs().format("HH");
 $(document).ready(function () {
   console.log("Getting all elements by class timeblock");
   console.log($(`.time-block`));
@@ -21,29 +16,30 @@ $(document).ready(function () {
   $(".time-block").each(colorCode);
 
   function colorCode() {
-    console.log("Color Code function");
-    console.log($(this).attr("id"));
     myID = $(this).attr("id");
     hourOfID = Number(myID.substring(5))
-    console.log(hourOfID);
-    console.log(currentHour)
     if (currentHour > hourOfID) {
-      console.log("Should be past")
       $(this).addClass("past");
     } else if (currentHour == hourOfID) {
-      console.log("Should be present")
       $(this).addClass("present");
     } else {
-      console.log("Shoudl be future")
       $(this).addClass("future");
     }
   }
 
-  function signUp(newPlayer) {
-    //register the name
-    //add the number
-    //assign to a team
-  }
+function saveTask() {
+  var textArea = $(this).siblings('.description').val();
+  var divId = $(this).parent().attr('id');
+  console.log("divId")
+  console.log(divId);
+  localStorage.setItem(divId, textArea);
+
+}
+saveTask();
+// saveBtn.on('click', saveTask() {
+//   localStorage.setItemItem(divId, textArea);
+
+// });
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -51,11 +47,11 @@ $(document).ready(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
-  // TODO: Add code to apply the past, present, or future class to each time
+  // TODO: Add code to apply the past, present, or future class to each time(SHOULD BE COMPLETED)
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
+  // current hour in 24-hour time?(WE HAVE THE HH put in to do so)
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
@@ -65,6 +61,8 @@ $(document).ready(function () {
   // TODO: Add code to display the current date in the header of the page.
   function displayDate() {
     var today = dayjs();
-    $("#currentDay").text(today.format("dddd, MMM D, YYYY, h:mm:ss a"));
+    $("#currentDay").text(today.format("dddd, MMM D, YYYY"));
   }
 });
+
+
