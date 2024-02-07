@@ -1,21 +1,11 @@
 # WorkDayPlanner
 
-## User Story
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
+## Description
+This workday planner is designed to color code the time slots as grey for the past, red for the current hour, and green for anything in the future. This planner allows the user to save this tasks via the save button, and will be persit on the page beyond it refershing. The motiviaion of this project is a better understanding of JQuery, dayJS, and JavaScript.  The app is made to help a busy employee keep track of their day and daily ongoings. I have a better understanding of "this" and its usage and what it related to. I also learned more about how to acess and utiize local storage. 
 
-### Acceptance Criteria
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with time blocks for standard business hours of 9am to 5pm
-WHEN I view the time blocks for that day
-THEN each time block is color-coded to indicate whether it is in the past, present, or future
-WHEN I click into a time block
-THEN I can enter an event
-WHEN I click the save button for that time block
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
+### Usage
+User should enter the taske in the desired time slot and use the save button to store the task. Simply input a new task the next day to overwrite the previous task. Green time slots are intended to be future time slots, grey the past, and red being the current hour. 
+
+
+
+![Webpage Screenshot](Mod2Pic.jpeg)
